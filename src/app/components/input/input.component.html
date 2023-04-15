@@ -1,0 +1,7 @@
+<div class="item">
+  <label [for]="id" class="label">{{text}}</label>
+  <input (input)="onInputValueChange($event)" [value]="value" *ngIf="!itsTextarea; else textarea" [id]="id" type="text" class="input">
+  <ng-template #textarea>
+    <textarea class="input" (input)="onInputValueChange($event)" [value]="value" [id]="id"></textarea>
+  </ng-template>
+</div>

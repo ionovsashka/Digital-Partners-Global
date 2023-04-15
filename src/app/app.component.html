@@ -1,0 +1,89 @@
+
+<div *ngIf="form" class="main">
+  <div class="main__container">
+    <div class="main__content">
+      <h1 class="main__title">Hello</h1>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="main__form form">
+        <h2 class="form__title">For business enquiries please use the form below</h2>
+        <div class="form__required text-small">*Required</div>
+        <div class="form__items">
+          <div class="form__control">
+            <app-input
+              [id]="'name'"
+              [text]="'Name*'"
+              [formControlName]="'name'"
+            >
+            </app-input>
+            <div *ngIf="submittingAForm && form.get('name')?.errors" class="form__validation">
+              <small *ngIf="submittingAForm && form.get('name')?.errors?.required">Required field</small>
+            </div>
+          </div>
+          <div class="form__control">
+            <app-input
+              [id]="'company'"
+              [text]="'Company*'"
+              [formControlName]="'company'"
+            >
+            </app-input>
+            <div *ngIf="submittingAForm && form.get('company')?.errors" class="form__validation">
+              <small *ngIf="submittingAForm && form.get('company')?.errors?.required">Required field</small>
+            </div>
+          </div>
+          <div class="form__control">
+            <app-input
+              [id]="'email'"
+              [text]="'E-mail*'"
+              [formControlName]="'email'"
+            >
+            </app-input>
+            <div *ngIf="submittingAForm && form.get('email')?.errors" class="form__validation">
+              <small *ngIf="submittingAForm && form.get('email')?.errors?.required">Required field</small>
+              <small *ngIf="submittingAForm && form.get('email')?.errors?.email">Incorrect email</small>
+            </div>
+          </div>
+          <div class="form__control">
+            <app-input
+              [id]="'phone'"
+              [text]="'Phone'"
+              [formControlName]="'phone'"
+            >
+            </app-input>
+          </div>
+          <div class="form__control">
+            <app-input
+              [id]="'subject'"
+              [text]="'Subject'"
+              [formControlName]="'subject'"
+            >
+            </app-input>
+          </div>
+          <div class="form__control">
+            <app-input
+              [id]="'message'"
+              [text]="'Message*'"
+              [itsTextarea]="true"
+              [formControlName]="'message'"
+            >
+            </app-input>
+            <div *ngIf="submittingAForm && form.get('message')?.errors" class="form__validation">
+              <small *ngIf="submittingAForm && form.get('message')?.errors?.required">Required field</small>
+            </div>
+          </div>
+        </div>
+        <div class="form__accept accept">
+          <label class="accept__label">
+            <input (change)="accept = !accept" class="real-checkbox"
+                   type="checkbox">
+            <span class="custom-checkbox"></span>
+          </label>
+          <div class="accept__text text-small">
+            I accept <a href="#">Terms and Privacy Policy</a>
+          </div>
+        </div>
+        <div class="form__button">
+          <button [disabled]="!accept" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

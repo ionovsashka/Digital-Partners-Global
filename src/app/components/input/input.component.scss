@@ -1,0 +1,28 @@
+@import "../../shared/mixins.scss";
+.item {
+  text-align: left;
+  &:focus-within .label{
+    color: white;
+  }
+}
+
+.label {
+  display: block;
+  transition: color .2s ease;
+  @include text-small;
+  color: #797EA3;
+}
+
+.input {
+  font-size: 18px;
+  line-height: 120%;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 7px 0;
+  background-color: transparent;
+  border-bottom: 1px solid #3F4363;
+  transition: border-bottom-color .2s ease;
+  &:focus{
+    border-bottom-color: white;
+  }
+}

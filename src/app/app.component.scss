@@ -1,0 +1,156 @@
+@import "shared/mixins.scss";
+.main {
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('../assets/img/cosmos-1845140_1920\ 1.png');
+  background-position: center;
+  background-size: cover;
+  &__title{
+    display: block;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 19px rgba(0, 0, 0, 0.97);
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 120%;
+    margin-bottom: 25px;
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+  }
+  &__content{
+    max-height: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media (min-width: 1920px) {
+      width: 30%;
+    }
+  }
+  &__form{
+    width: 389px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 41px 45px;
+    background: #171929;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.7);
+    border-radius: 27px;
+    @media (max-width: 480px) {
+      padding: 20px;
+      width: 90%;
+    }
+    @media (min-width: 1920px) {
+      width: 100%;
+    }
+  }
+}
+.form {
+  text-align: center;
+  &__title {
+    font-size: 18px;
+    line-height: 120%;
+    color: #FFFFFF;
+    margin-bottom: 11px;
+  }
+
+  &__required {
+    @include text-small;
+    color: #797EA3;
+    margin-bottom: 10px;
+  }
+  &__control{
+    margin-bottom: 38px;
+  }
+  &__validation{
+    text-align: left;
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 120%;
+    color: white;
+  }
+
+  &__button {
+    & > button{
+      background: #2C2F47;
+      border-radius: 28px;
+      padding: 11px 40px;
+      font-size: 18px;
+      line-height: 120%;
+      color: rgba(255, 255, 255, 0.7);
+      transition: background .3s ease;
+      &:hover{
+        background: #56596c;
+      }
+      &:disabled{
+        cursor: not-allowed;
+        color: rgba(255, 255, 255, 0.7);
+        background: #808291;
+      }
+    }
+  }
+}
+.accept {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+
+  &__label {
+    margin-right: 12px;
+  }
+
+  &__text {
+    @include text-small;
+    color: #797EA3;
+    & > a{
+      color: #B9BEE5;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+
+.real-checkbox{
+  display: none;
+  &:checked + .custom-checkbox:before{
+    display: inline-block;
+  }
+}
+
+.custom-checkbox{
+  cursor: pointer;
+  width: 31px;
+  height: 31px;
+  position: relative;
+  display: inline-block;
+  background: #2C2F47;
+  border-radius: 8px;
+  &:before{
+    content: '';
+    display: none;
+    width: 12px;
+    height: 9px;
+    background-image: url("../assets/img/Check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.textarea{
+  margin-bottom: 30px;
+}
